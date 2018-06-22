@@ -5,6 +5,7 @@ ALI_ALIPAY = "ALI_ALIPAY"
 PC_CLIENT = "PC_CLIENT"
 WX_PUBLIC = "WX_PUBLIIC"
 WX_SMALL = "WX_SMALL"
+UNKOWN = "UNKOWN"
 
 CLIENT = [(APP_ANDROID,"android"),
           (APP_IOS,"ios"),
@@ -12,4 +13,8 @@ CLIENT = [(APP_ANDROID,"android"),
           (ALI_ALIPAY,u"支付宝APP"),
           (WX_PUBLIC,u"微信公众号"),
           (WX_SMALL,u"微信小程序"),
-          (PC_CLIENT,u"pc端")]
+          (PC_CLIENT,u"pc端"),
+          (UNKOWN,u"未知")]
+
+
+command = {"userlogin":"UserLoginService"}
