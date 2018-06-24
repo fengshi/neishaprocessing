@@ -2,15 +2,17 @@
 
 from mongoengine import connect
 
-db = "test"
-host = "localhost"
+db = "neidb"
+host = "47.104.29.27"
 port = 27017
+user = "admin"
+pwd = "admin"
 
 class DB:
     @staticmethod
     def start():
         try:
-            connect(db,host=host,port=port)
+            connect(db,username=user,password=pwd,host=host,port=port)
             print(u"数据库已连接>>>>>>>>")
         except Exception as e:
             print(u"数据库连接错误>>>>>>>>>")
