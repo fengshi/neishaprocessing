@@ -2,13 +2,13 @@
 
 from mongoengine import *
 from util import Constants
-import datetime
+from datetime import datetime
 
 class UserLoginModel(Document):
-    '''
+    """
     用户登录记录
-    '''
-    login_time = DateTimeField(default=datetime.datetime.now())
+    """
+    login_time = DateTimeField(default=datetime.now())
     user_id = StringField(required=True)
     ip = StringField(required=True)
     client = StringField(required=True,choices=Constants.CLIENT)
