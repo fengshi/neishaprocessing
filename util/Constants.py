@@ -17,4 +17,4 @@ CLIENT = [(APP_ANDROID,"android"),
           (UNKOWN,u"未知")]
 
 
-command = {"userlogin":"UserLoginService"}
+command = {"userLogin":"UserLoginService"}

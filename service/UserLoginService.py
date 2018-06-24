@@ -12,7 +12,7 @@ class UserLoginService:
 
     def excute(self):
         if self.msg:
-            myJson = json.load(self.msg)
+            myJson = json.loads(self.msg)
 
             user_id = myJson.get("user_id","-1")
             ip = myJson.get("ip","0.0.0.0")
