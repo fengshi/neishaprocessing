@@ -45,7 +45,8 @@ class ServiceFactory:
                     p = getattr(my_moudle,class_name)
                     command = p(jsonMsg)
                     result = command.excute()
-
+                    if result['ret'] > 0:
+                        self.record.recordSave(result['ret'], result['msg'], jsonMsg)
                     #return result
                 else:
                     #return {"ret":500,"msg":"Not service class"}

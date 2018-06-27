@@ -17,3 +17,18 @@ class StockNotFullModel(Document):
     end_date = StringField(required=True)                 # 档期结束日期
     deliver_type = StringField(required=True)             # 物流方式(快递,自提)
     count = IntField(default=1)                           # 数量
+
+if __name__ == '__main__':
+    from DB.DB import DB
+
+    DB.start()
+    full = StockNotFullModel()
+    full.user_id = "28"
+    full.ip = "192.168.0.0"
+    full.sku_id = "2904"
+    full.city_id = "194"
+    full.begin_date = "2018-06-10"
+    full.end_date = "2018-06-20"
+    full.deliver_type = "1"
+    full.count = 1
+    full.save()
