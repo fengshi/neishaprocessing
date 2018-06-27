@@ -2,7 +2,7 @@
 
 from DB.DB import DB
 import json
-from util import Constants
+from util import Constants,ErrorRecordUtil
 import importlib
 
 
@@ -22,6 +22,7 @@ class ServiceFactory:
 
     def __init__(self):
         self.error = None
+        self.record = ErrorRecordUtil()
         try:
             DB.start()
         except Exception as e:
@@ -30,7 +31,8 @@ class ServiceFactory:
 
     def excute(self,jsonMsg):
         if self.error:
-            return {"ret":500,"msg":self.error}
+            #return {"ret":500,"msg":self.error}
+            self.record.recordSave(500,self.error,jsonMsg)
 
         command_name = _checkMsg(jsonMsg)
 
@@ -44,10 +46,13 @@ class ServiceFactory:
                     command = p(jsonMsg)
                     result = command.excute()
 
-                    return result
+                    #return result
                 else:
-                    return {"ret":500,"msg":"Not service class"}
+                    #return {"ret":500,"msg":"Not service class"}
+                    self.record.recordSave(500, "Not service class", jsonMsg)
             except Exception as e:
                 print(e)
-                return {"ret":500,"msg:":"class moudle error"}
-        return {"ret":500,"msg":"command name error"}
+                #return {"ret":500,"msg:":"class moudle error"}
+                self.record.recordSave(500, "class moudle error", jsonMsg)
+        #return {"ret":500,"msg":"command name error"}
+        self.record.recordSave(500, "command name error", jsonMsg)
