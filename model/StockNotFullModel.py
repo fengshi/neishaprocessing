@@ -16,3 +16,4 @@ class StockNotFullModel(Document):
     begin_date = StringField(required=True)               # 档期开始日期
     end_date = StringField(required=True)                 # 档期结束日期
     deliver_type = StringField(required=True)             # 物流方式(快递,自提)
+    count = IntField(default=1)                           # 数量
