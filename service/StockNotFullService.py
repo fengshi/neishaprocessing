@@ -4,6 +4,7 @@ import json
 from model import StockNotFullModel
 import traceback
 from datetime import datetime
+from util import Constants
 
 class StockNotFullService:
 
@@ -22,10 +23,11 @@ class StockNotFullService:
             end_date = myJson.get("end_date", datetime.now().strftime('%Y-%m-%d'))
             deliver_type = myJson.get("deliver_type","1")
             count = myJson.get("count",1)
+            client = myJson.get("client", Constants.UNKOWN)
 
             try:
                 e = StockNotFullModel(user_id=user_id,ip=ip,sku_id=sku_id,city_id=city_id,
-                                      begin_date=begin_date,end_date=end_date,deliver_type=deliver_type,count=count)
+                                      begin_date=begin_date,end_date=end_date,deliver_type=deliver_type,count=count,client=client)
                 e.save()
                 return {"ret":0}
             except Exception as e:

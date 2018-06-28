@@ -2,6 +2,7 @@
 
 from mongoengine import *
 from datetime import datetime
+from util import Constants
 
 class StockNotFullModel(Document):
     """
@@ -17,6 +18,7 @@ class StockNotFullModel(Document):
     end_date = StringField(required=True)                 # 档期结束日期
     deliver_type = StringField(required=True)             # 物流方式(快递,自提)
     count = IntField(default=1)                           # 数量
+    client = StringField(required=True, choices=Constants.CLIENT)  # 客户端
 
 if __name__ == '__main__':
     from DB.DB import DB
