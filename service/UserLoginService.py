@@ -7,6 +7,9 @@ from util import Constants
 
 class UserLoginService:
 
+    """
+    用户登录记录业务
+    """
     def __init__(self,jsonMsg):
         self.msg = jsonMsg.decode('utf-8')
 

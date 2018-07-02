@@ -8,6 +8,10 @@ from util import Constants
 
 class StockNotFullService:
 
+    """
+    SKU库存不足记录
+    """
+
     def __init__(self,jsonMsg):
         self.msg = jsonMsg.decode('utf-8')
 
